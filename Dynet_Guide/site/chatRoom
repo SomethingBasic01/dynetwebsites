@@ -1,0 +1,8 @@
+^f9Welcome to the Real-Time Chat Room!^f0
+Type a message and click to send:
+
+$chatFeed
+
+^f3[Send Message] ~ask:cookie:Type your message here
+^f8[Refresh Chat] ~ref
+^f0[Back to Home Page] ~loc:home
