@@ -1,0 +1,80 @@
+-- Initialize visitor count, stored in a file to persist between server restarts
+local visitCount = 0
+
+-- Chat messages will be stored in memory, with a limit of the last 10 messages
+local chatMessages = {}
+
+-- Trivia game data
+local triviaQuestions = {
+    { question = "The Minecraft world is infinite. True or False?", answer = "False" },
+    { question = "Creepers were originally a coding bug. True or False?", answer = "True" },
+    { question = "Diamonds can be mined with a wooden pickaxe. True or False?", answer = "False" },
+}
+local currentQuestionIndex = 1
+local playerScores = {}
+
+-- Function to read the visitor count from a file
+local function readVisitCount()
+    local file = fs.open("visitCount.txt", "r")
+    if file then
+        visitCount = tonumber(file.readAll()) or 0
+        file.close()
+    end
+end
+
+-- Function to save the visitor count to a file
+local function saveVisitCount()
+    local file = fs.open("visitCount.txt", "w")
+    file.write(tostring(visitCount))
+    file.close()
+end
+
+-- Read the current visit count when the server starts
+readVisitCount()
+
+function getDynamicLine(name, page)
+    if name == "visitorCounter" then
+        visitCount = visitCount + 1
+        saveVisitCount()  -- Update the count in the file
+        return "^f2This page has been visited " .. visitCount .. " times."
+    elseif name == "chatFeed" then
+        local chatDisplay = "^f6Current Chat Messages:^f0\n"
+        for _, msg in ipairs(chatMessages) do
+            chatDisplay = chatDisplay .. msg .. "\n"
+        end
+        return chatDisplay
+    elseif name == "triviaQuestion" then
+        return "^f5" .. triviaQuestions[currentQuestionIndex].question .. "^f0"
+    elseif name == "triviaScore" then
+        local score = playerScores[page] or 0
+        return "^f9" .. score .. "^f0"
+    end
+    return ""
+end
+
+function runDynamicCommand(name, client, page)
+    if name:find("ask:cookie:") then
+        local message = name:match("ask:cookie:(.+)")
+        if message and #message > 0 then
+            -- Handle chat room messages
+            if page == "chatRoom" then
+                table.insert(chatMessages, "^f3[" .. os.date("%H:%M:%S") .. "] ^f0" .. client .. ": " .. message)
+                if #chatMessages > 10 then
+                    table.remove(chatMessages, 1) -- Keep only the last 10 messages
+                end
+                rednet.send(client, "ref")
+            -- Handle trivia game answers
+            elseif page == "trivia" then
+                local answer = message
+                if answer == "True" or answer == "False" then
+                    local correctAnswer = triviaQuestions[currentQuestionIndex].answer
+                    if answer == correctAnswer then
+                        playerScores[client] = (playerScores[client] or 0) + 1
+                    end
+                    currentQuestionIndex = currentQuestionIndex % #triviaQuestions + 1
+                    rednet.send(client, "ref")
+                end
+            end
+        end
+    end
+end
