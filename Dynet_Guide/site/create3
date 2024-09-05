@@ -1,0 +1,15 @@
+So you want to add pages, 
+well first lets understand the file structure.
+Every webserver will have a few files and folders
+^fE^bF DO NOT TOUCH OR EDIT ANY FILE EXCEPT THOSE FOUND IN "SITE/"
+so if you wanted to edit the home page you will do:
+edit site/home
+pretty simple, adding a page tho requires a few more steps:
+edit site/PAGE, but you'll notice that it will be saved as
+PAGE.lua we do not want this so do:
+rename site/PAGE.lua site/PAGEE, and perfect
+you now have another page called PAGEE.
+while CC is fun its very taxing to edit in-game so it's
+recommended to use pastebin or github to edit and install webpages,
+example using github:
+wget LINK site/PAGE
