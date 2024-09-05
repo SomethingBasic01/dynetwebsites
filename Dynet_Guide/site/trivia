@@ -7,4 +7,7 @@ $triviaQuestion
 Your Score:
 $triviaScore
 
+Feedback:
+$triviaFeedback
+
 ^f3[Back to Home Page] ~loc:home
