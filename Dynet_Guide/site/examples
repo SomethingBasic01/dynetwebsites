@@ -1,2 +1,10 @@
- ^fE^bF Here are some advanced examples: 
- 
+^b1Explore advanced features below:^bF
+
+1. ^f5[Join the Chat Room] ~loc:chatRoom
+2. ^f9[Play a Trivia Game] ~loc:trivia
+3. ^fE[Dynamic Visit Counter Page] ~loc:dynamicCounter
+
+Choose an option above or click a link!
+^f8 each feature shown uses the *tilde*
+^f8$custom function aswell as lua coding.
+^f8learn about more dynet websites at:
