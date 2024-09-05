@@ -2,8 +2,8 @@
 Current Question:
 $triviaQuestion
 
-^f8[Answer: True] ~ask:cookie:True
-^f8[Answer: False] ~ask:cookie:False
+^f8Answer: True ~ask:cookie:True
+^f8Answer: False ~ask:cookie:False
 
 Your Score:
 $triviaScore
