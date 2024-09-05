@@ -1,22 +1,5 @@
 -- Initialize counters
-local homeVisitCount = 0
 local dynamicCounterVisitCount = 0
-
--- Function to read the visitor count for the homepage
-local function readHomeVisitCount()
-    local file = fs.open("homeVisitCount.txt", "r")
-    if file then
-        homeVisitCount = tonumber(file.readAll()) or 0
-        file.close()
-    end
-end
-
--- Function to save the visitor count for the homepage
-local function saveHomeVisitCount()
-    local file = fs.open("homeVisitCount.txt", "w")
-    file.write(tostring(homeVisitCount))
-    file.close()
-end
 
 -- Function to read the visit count for the dynamicCounter page
 local function readDynamicCounterVisitCount()
@@ -35,16 +18,10 @@ local function saveDynamicCounterVisitCount()
 end
 
 -- Read the visit counts when the server starts
-readHomeVisitCount()
 readDynamicCounterVisitCount()
 
 function getDynamicLine(name, page)
-    if name == "visitorCounter" then
-        -- Homepage visitor counter
-        homeVisitCount = homeVisitCount + 1
-        saveHomeVisitCount()
-        return "^f2This page has been visited " .. homeVisitCount .. " times."
-    elseif name == "visitCount" then
+    if name == "visitCount" then
         -- DynamicCounter page visit counter
         dynamicCounterVisitCount = dynamicCounterVisitCount + 1
         saveDynamicCounterVisitCount()
