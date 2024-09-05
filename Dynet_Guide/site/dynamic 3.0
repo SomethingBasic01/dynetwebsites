@@ -1,0 +1,99 @@
+-- Initialize visitor counts, stored in files to persist between server restarts
+local homeVisitCount = 0
+local dynamicCounterVisitCount = 0
+
+-- Trivia game data
+local triviaQuestions = {
+    { question = "The Minecraft world is infinite. True or False?", answer = "False" },
+    { question = "Creepers were originally a coding bug. True or False?", answer = "True" },
+    { question = "Diamonds can be mined with a wooden pickaxe. True or False?", answer = "False" },
+}
+local currentQuestionIndex = 1
+local playerScores = {}
+
+-- Function to read the visitor count for the homepage
+local function readHomeVisitCount()
+    local file = fs.open("homeVisitCount.txt", "r")
+    if file then
+        homeVisitCount = tonumber(file.readAll()) or 0
+        file.close()
+    end
+end
+
+-- Function to save the visitor count for the homepage
+local function saveHomeVisitCount()
+    local file = fs.open("homeVisitCount.txt", "w")
+    if file then
+        file.write(tostring(homeVisitCount))
+        file.close()
+    end
+end
+
+-- Function to read the visit count for the dynamicCounter page
+local function readDynamicCounterVisitCount()
+    local file = fs.open("dynamicCounterVisitCount.txt", "r")
+    if file then
+        dynamicCounterVisitCount = tonumber(file.readAll()) or 0
+        file.close()
+    end
+end
+
+-- Function to save the visit count for the dynamicCounter page
+local function saveDynamicCounterVisitCount()
+    local file = fs.open("dynamicCounterVisitCount.txt", "w")
+    if file then
+        file.write(tostring(dynamicCounterVisitCount))
+        file.close()
+    end
+end
+
+-- Read the current visit counts when the server starts
+readHomeVisitCount()
+readDynamicCounterVisitCount()
+
+function getDynamicLine(name, page)
+    if name == "visitorCounter" then
+        -- Homepage visitor counter
+        homeVisitCount = homeVisitCount + 1
+        saveHomeVisitCount()  -- Update the count in the file
+        return "^f2This page has been visited " .. homeVisitCount .. " times."
+    elseif name == "visitCount" then
+        -- DynamicCounter page visit counter
+        dynamicCounterVisitCount = dynamicCounterVisitCount + 1
+        saveDynamicCounterVisitCount()  -- Update the count in the file
+        return "^f2This page has been visited " .. dynamicCounterVisitCount .. " times."
+    elseif name == "triviaQuestion" then
+        -- Return the current trivia question
+        return "^f5" .. triviaQuestions[currentQuestionIndex].question .. "^f0"
+    elseif name == "triviaScore" then
+        -- Get the player's score, default to 0 if not found
+        local score = playerScores[page] or 0
+        return "^f9" .. score .. "^f0"
+    end
+    return ""
+end
+
+-- Function to handle dynamic input from the dialog box
+function takeDynamicInput(_, input)
+    -- Ensure input is treated as a string
+    input = tostring(input)
+    
+    print("Received input: " .. input)
+
+    -- Handle the trivia answer
+    local answer = input:lower()  -- Convert input to lowercase to handle "True"/"False" case-insensitively
+    if answer == "true" or answer == "false" then
+        local correctAnswer = triviaQuestions[currentQuestionIndex].answer:lower()
+        if answer == correctAnswer then
+            print("^f5Correct! Your score is now " .. playerScores['score'] .. ".~ref")
+            playerScores['score'] = (playerScores['score'] or 0) + 1
+        else
+            print("^fEIncorrect! The correct answer was " .. correctAnswer .. ".~ref")
+        end
+        -- Move to the next question
+        currentQuestionIndex = currentQuestionIndex % #triviaQuestions + 1
+    else
+        -- Invalid input handling
+        print("^fEInvalid input! Please type 'True' or 'False'.~ref")
+    end
+end
