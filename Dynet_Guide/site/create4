@@ -1,13 +1,15 @@
-To let users move between pages, you will need to use
-the tilde symbol followed by "loc:page". 
+A basic way to let users navigate is
+by using the tilde symbol followed by 
+-"^f8loc:page^fF"
 Anything before the tilde will be clickable and
 anything after it will not be visable.
 ^fE^bF BUTTON ~loc:home
 here are some other functions:
 -^f8glob:site/page (takes you to another website)
 -^f8ref (refreshes the page)
--^f8ask:cookie:question (gives the user a dialog box to type)
--$custom ^f7(this is an advanced feature and explained
+-^f8ask:cookie:question (gives the user a text box)
+-$custom ^f7(this is feature is explained
 ^f7on advanced pages from the menu.)
+
 ^fE[Next Page]~loc:create5
-^fe[prev Page]~loc:create3
+^fE[prev Page]~loc:create3
