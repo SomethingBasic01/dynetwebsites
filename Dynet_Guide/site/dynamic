@@ -1,0 +1,30 @@
+-- Initialize visitor count, stored in a file to persist between server restarts
+local visitCount = 0
+
+-- Function to read the visitor count from a file
+local function readVisitCount()
+    local file = fs.open("visitCount.txt", "r")
+    if file then
+        visitCount = tonumber(file.readAll()) or 0
+        file.close()
+    end
+end
+
+-- Function to save the visitor count to a file
+local function saveVisitCount()
+    local file = fs.open("visitCount.txt", "w")
+    file.write(tostring(visitCount))
+    file.close()
+end
+
+-- Read the current visit count when the server starts
+readVisitCount()
+
+function getDynamicLine(name, page)
+    if name == "visitorCounter" then
+        visitCount = visitCount + 1
+        saveVisitCount()  -- Update the count in the file
+        return "^f2This page has been visited " .. visitCount .. " times."
+    end
+    return ""
+end
