@@ -1,16 +1,16 @@
 So you want to add pages, 
 well first lets understand the file structure.
 Every webserver will have a few files and folders
-^fE^bF DO NOT TOUCH OR EDIT ANY FILE EXCEPT THOSE FOUND IN "SITE/"
-so if you wanted to edit the home page you will do:
+^fE^bF DO NOT EDIT ANY FILE EXCEPT THOSE FOUND IN "SITE/"
+so if you wanted to edit the home page you do:
 edit site/home
-pretty simple, adding a page tho requires a few more steps:
-edit site/PAGE, but you'll notice that it will be saved as
-PAGE.lua we do not want this so do:
+adding a page tho requires a few more steps:
+edit site/PAGE, but you'll notice that it saves:
+PAGE.lua dynet cant use this so,
 rename site/PAGE.lua site/PAGEE, and perfect
-you now have another page called PAGEE.
-I recommend you use pastebin or github to edit and install webpages,
-example using github:
-wget LINK site/PAGE
+^f7I recommend you use pastebin or github 
+^f7to edit and install webpages,
+^f7example using github:
+^fBwget LINK site/PAGE
 ^b0^fE [Prev Page] ~loc:create2
 ^b0^fE [Next Page] ~loc:create4
