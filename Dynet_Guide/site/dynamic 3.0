@@ -73,23 +73,24 @@ function getDynamicLine(name, page)
     return ""
 end
 
-function runDynamicCommand(name, client, page)
-    if name:find("ask:cookie:") then
-        local message = name:match("ask:cookie:(.+)")
-        if message then
-            -- Handle trivia game responses
-            if page == "trivia" then
-                local answer = message
-                if answer == "True" or answer == "False" then
-                    local correctAnswer = triviaQuestions[currentQuestionIndex].answer
-                    if answer == correctAnswer then
-                        playerScores[client] = (playerScores[client] or 0) + 1
-                    end
-                    -- Move to the next question
-                    currentQuestionIndex = currentQuestionIndex % #triviaQuestions + 1
-                    rednet.send(client, "ref")
-                end
-            end
+-- Function to handle dynamic input from the dialog box
+function takeDynamicInput(client, input)
+    print("Received input from client: " .. client .. " - Input: " .. input)
+
+    -- Handle the trivia answer
+    local answer = input:lower()  -- Convert input to lowercase to handle "True"/"False" case-insensitively
+    if answer == "true" or answer == "false" then
+        local correctAnswer = triviaQuestions[currentQuestionIndex].answer:lower()
+        if answer == correctAnswer then
+            playerScores[client] = (playerScores[client] or 0) + 1
+            rednet.send(client, "^f5Correct! Your score is now " .. playerScores[client] .. ".~ref")
+        else
+            rednet.send(client, "^fEIncorrect! The correct answer was " .. correctAnswer .. ".~ref")
         end
+        -- Move to the next question
+        currentQuestionIndex = currentQuestionIndex % #triviaQuestions + 1
+    else
+        -- Invalid input handling
+        rednet.send(client, "^fEInvalid input! Please type 'True' or 'False'.~ref")
     end
 end
