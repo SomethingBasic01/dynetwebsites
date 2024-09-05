@@ -1,9 +1,9 @@
-To change text color, use (^)f(x)Remove the 
-(), and X is your color code.
-For backgrounds, use (^)b(x)
-^fF=========================================
-^f7 Creating new pages
-^f7 Assuming you used the dynet disk installer
-^f7 you will be given a selection, for beginners
-^f7 select 2 for a blank template.
-
+To change text color, use the carot symbol
+followed by either a b(ackground) or a
+f(oreground) then followed by a color code.
+^f1 Foreground only colors text
+^f1^bE Background colors the background
+^f1^bE including special characters.
+^bE                                  
+^f7 remeber that *spaces* are considered
+^f7 special charceters!
