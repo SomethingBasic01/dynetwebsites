@@ -1,8 +1,11 @@
 ^f9Welcome to the Trivia Game!^f0
-Current Question: $triviaQuestion
+Current Question:
+$triviaQuestion
 
 ^f8[Answer: True] ~ask:cookie:True
 ^f8[Answer: False] ~ask:cookie:False
-^f3[Your Score: $triviaScore] ^f0
 
-^f0[Back to Home Page] ~loc:home
+Your Score:
+$triviaScore
+
+^f3[Back to Home Page] ~loc:home
