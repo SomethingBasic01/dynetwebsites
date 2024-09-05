@@ -1,0 +1,4 @@
+To let users move between pages, you will need to use
+the tilde symbol followed by "loc:page". 
+Anything before the tilde will be clickable and
+anything after it will not be visable.
