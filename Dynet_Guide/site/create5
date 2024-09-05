@@ -1,4 +1,11 @@
 There are 2 different kinds of ^f4web servers^fF:
 ^fAKat-Net servers ^fFand ^fENormal webservers.
 Normal webservers are bought in a pack from the
-/ps 
+/ps Net_inc shop. While they are capable of
+hosting webpages, they will only do so in a loaded
+chunk.
+^fAKat-Net servers are purchased through contacting
+^fCSomethingBasic ^fF These webservers remain constantly
+loaded so players can use them even if you are offline!
+^fE[Home page] ~loc:home
+^fE[Prev page] ~loc:create4
