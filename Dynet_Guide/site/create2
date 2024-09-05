@@ -3,8 +3,9 @@ followed by either a b(ackground) or a
 f(oreground) then followed by a color code.
 ^f1 Foreground only colors text
 ^f1^bE Background colors the background
-^f1^bE including special characters.
-^bE                                  
+^f1^bE including special characters.   
+^bE                                 
 ^f7 remeber that *spaces* are considered
 ^f7 special charceters!
-^b0^fE [Prev Page] ~loc:create2 ^b0^fE [Next Page] ~loc:create3
+^b0^fE [Prev Page] ~loc:create2
+^b0^fE [Next Page] ~loc:create3
