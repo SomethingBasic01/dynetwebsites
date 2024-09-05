@@ -1,0 +1,16 @@
+^f7 Creation Guide - Basics ^f7
+  Welcome to the Creation Guide!
+Here, you'll learn the essentials of 
+   building webpages with Dynet.
+
+^f1Color Codes^f1
+Dynet supports 16 colors for ^f2text ^fFand ^ff^bBbackgrounds. 
+
+Use the following codes to style your text:
+^f7^b0 White (0), ^f1Orange (1), ^f2Magenta (2), 
+^f3Light Blue (3) ^f4Yellow (4), ^f5Lime (5),
+^f6Pink (6), ^f7Gray (7) ^f8Light Gray (8), 
+^f9Cyan (9), ^fAPurple (A), ^fBBlue (B)
+^fCBrown (C), ^fDGreen (D), ^fERed (E), ^fFBlack (F)
+
+^b0^fE [Next Page] ~loc:create2
