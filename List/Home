@@ -1,0 +1,10 @@
+^f2**Official List of Sponsored Websites**^f0
+
+^f3Website Name ~ Description
+-------------------------------------
+
+-- Dynamic content that will display the list of websites
+$sponsoredWebsitesList
+
+-------------------------------------
+^f3[Submit a Website] ~ask:submitWebsite:Please enter your website information in the format: Name|Link|Description
