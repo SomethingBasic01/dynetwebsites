@@ -1,34 +1,11 @@
--- Function to handle downloading and running the chatroom script
-function handleDownloadAndRunEnchat(client)
-    -- Command to download the chatroom script
-    local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua"
-
-    -- Command to run the chatroom script in a new tab using shell.run and os.openTab
-    local runCommand = "lua -e \"os.openTab('shell', 'run', 'enchat3.lua')\""
-
-    -- Send the 'exec' command to the client's computer to download the script
-    rednet.send(client, "exec:" .. downloadCommand)
-    -- Wait a bit to ensure the download completes
-    sleep(1) -- Adjust the sleep duration if needed
-    -- Send the 'exec' command to the client's computer to run it in a new tab
-    rednet.send(client, "exec:" .. runCommand)
-    -- Refresh the client page to confirm action
-    rednet.send(client, "ref")
-end
-
--- Function to generate dynamic content for the webpage
-function getDynamicLine(name, page)
-    if name == "downloadAndRunEnchat" then
-        return "" -- Leave blank since we only trigger commands, no output needed
-    end
-    return "" -- Handle any other dynamic lines with an empty string
-end
-
--- Register the custom command in Dynet
+-- Function to handle custom commands
 function runDynamicCommand(name, client, page)
-    -- Check for the full command including the 'custom:' prefix
-    if name == "custom:downloadAndRunEnchat" then
-        handleDownloadAndRunEnchat(client)
+    if name == "downloadAndRunEnchat" then
+        -- Command to run the script from Pastebin directly
+        local pastebinCode = "your_pastebin_code"  -- Replace with the actual Pastebin code
+        local command = "pastebin run " .. pastebinCode
+        rednet.send(client, "exec:" .. command)
+        print("Sent command to client to run Enchat program from Pastebin.")
     else
         print("Unexpected command: " .. tostring(name))
     end
