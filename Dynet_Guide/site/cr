@@ -1,8 +1,10 @@
-^f9WELCOME TO THE MESSAGE BOARD!^f0
+^f9WELCOME TO THE CHAT ROOM!^f0
 
-$addMessagePrompt
+^f3[Join Chat Room] ~$custom:joinChatRoom
 
 ^f2---------------------------------
-$messageBoard
+^f8To participate in the chat, click 'Join Chat Room' above.
+Messages will appear in your terminal window.
+
 -------------------------------------
 ^f3[Back to Home Page] ~loc:home
