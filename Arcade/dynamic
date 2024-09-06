@@ -11,11 +11,25 @@ end
 -- Function to handle dynamic commands
 function runDynamicCommand(name, client, page)
     if name == "custom:playGame1" then
-        handleRunGame(client, "PASTEBIN_CODE_1") -- Replace PASTEBIN_CODE_1 with the actual Pastebin code
+        handleRunGame(client, "PASTEBIN_CODE_1") -- Replace PASTEBIN_CODE_1 with the actual Pastebin code for Game 1
     elseif name == "custom:playGame2" then
-        handleRunGame(client, "PASTEBIN_CODE_2") -- Replace PASTEBIN_CODE_2 with the actual Pastebin code
+        handleRunGame(client, "PASTEBIN_CODE_2") -- Replace PASTEBIN_CODE_2 with the actual Pastebin code for Game 2
     elseif name == "custom:playGame3" then
-        handleRunGame(client, "PASTEBIN_CODE_3") -- Replace PASTEBIN_CODE_3 with the actual Pastebin code
+        handleRunGame(client, "PASTEBIN_CODE_3") -- Replace PASTEBIN_CODE_3 with the actual Pastebin code for Game 3
+    elseif name == "custom:playGame4" then
+        handleRunGame(client, "PASTEBIN_CODE_4") -- Replace PASTEBIN_CODE_4 with the actual Pastebin code for Game 4
+    elseif name == "custom:playGame5" then
+        handleRunGame(client, "PASTEBIN_CODE_5") -- Replace PASTEBIN_CODE_5 with the actual Pastebin code for Game 5
+    elseif name == "custom:playGame6" then
+        handleRunGame(client, "PASTEBIN_CODE_6") -- Replace PASTEBIN_CODE_6 with the actual Pastebin code for Game 6
+    elseif name == "custom:playGame7" then
+        handleRunGame(client, "PASTEBIN_CODE_7") -- Replace PASTEBIN_CODE_7 with the actual Pastebin code for Game 7
+    elseif name == "custom:playGame8" then
+        handleRunGame(client, "PASTEBIN_CODE_8") -- Replace PASTEBIN_CODE_8 with the actual Pastebin code for Game 8
+    elseif name == "custom:playGame9" then
+        handleRunGame(client, "PASTEBIN_CODE_9") -- Replace PASTEBIN_CODE_9 with the actual Pastebin code for Game 9
+    elseif name == "custom:playGame10" then
+        handleRunGame(client, "PASTEBIN_CODE_10") -- Replace PASTEBIN_CODE_10 with the actual Pastebin code for Game 10
     else
         print("Unexpected command: " .. tostring(name))
     end
