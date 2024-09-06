@@ -1,10 +1,7 @@
-^f2**Official List of Sponsored Websites**^f0
-
-^f3Website Name ~ Description
--------------------------------------
-
--- Dynamic content that will display the list of websites
-$sponsoredWebsitesList
+^f2^b8**Official List of Kat-Net Websites**
 
 -------------------------------------
-^f3[Submit a Website] ~ask:submitWebsite:Please enter your website information in the format: Name|Link|Description
+^fB^bA A website building Guide ~glob:Dynet_Guide/home
+A site dedicated to explaing and showcasing what
+is possible with dynet!
+--------------------------------------
