@@ -3,7 +3,7 @@ function runDynamicCommand(name, client, page)
         -- Command to download and run the chatroom script
         local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua && shell.run('enchat3.lua')"
         
-        -- Send the exec command to the client
+        -- Send the exec command to the client to execute the download and run it
         rednet.send(client, "exec:" .. downloadCommand)
         -- Refresh the client page to confirm action
         rednet.send(client, "ref")
