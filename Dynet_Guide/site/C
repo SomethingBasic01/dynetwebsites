@@ -1,6 +1,1 @@
-^fASet Up Your Chat Room~$custom:downloadAndRunEnchat
-
-^f2---------------------------------
-^f8Click the button above to download and start the chat room.
--------------------------------------
-^f3[Back to Home Page] ~loc:home
+^fASet Up Your Chat Room~exec:download_and_run_enchat
