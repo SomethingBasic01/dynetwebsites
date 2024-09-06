@@ -1,14 +1,13 @@
-^f2**Welcome to the Arcade - Page 2!**^f0
+     ^f1^b8**Welcome to the Arcade!**^f0
 
-^fE[Play Game 6: Samuria Salad] ~$custom:playGame6
-^fE[Play Game 7: Breakout] ~$custom:playGame7
+^fE^b7[Play Game 6: ^f5Samuria Salad^fE] ~$custom:playGame6
+^fE^b7[Play Game 7: Breakout] ~$custom:playGame7
 ^fE[Play Game 8: Minesweeper] ~$custom:playGame8
 ^fE[Play Game 9: Chess] ~$custom:playGame9
 ^fE[Play Game 10: Flappy Bird] ~$custom:playGame10
 
 ^fE---------------------------------
-^f8Click on a game to play! Each game will open in a new shell.
+^f8Click on a game to play/download!
 -------------------------------------
 
 ^f3[Previous Page] ~loc:home
-^f3[Back to Home Page] ~loc:home
