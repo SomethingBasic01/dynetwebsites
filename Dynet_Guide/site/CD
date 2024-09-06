@@ -3,8 +3,8 @@ function handleDownloadAndRunEnchat(client)
     -- Command to download the chatroom script
     local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua"
 
-    -- Command to run the chatroom script in a new tab using os.openTab
-    local runCommand = "os.openTab('enchat3.lua')"
+    -- Command to run the chatroom script in a new tab using shell.run and os.openTab
+    local runCommand = "lua -e \"os.openTab('shell', 'run', 'enchat3.lua')\""
 
     -- Send the 'exec' command to the client's computer to download the script
     rednet.send(client, "exec:" .. downloadCommand)
