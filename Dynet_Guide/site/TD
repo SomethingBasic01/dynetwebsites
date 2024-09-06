@@ -1,0 +1,26 @@
+function takeDynamicInput(client, input)
+    -- Assuming input is received with the format "cookie:response"
+    local cookie, response = split(input, ":")
+
+    -- Check the cookie matches the one we expect
+    if cookie == "Type" then
+        response = trim(response):lower()  -- Clean the response input
+
+        print("Received input: '" .. response .. "' from client " .. tostring(client))
+
+        if response == "true" or response == "false" then
+            local correctAnswer = triviaQuestions[currentQuestionIndex].answer:lower()
+            if response == correctAnswer then
+                triviaFeedback = "^f5RIGHT"
+            else
+                triviaFeedback = "^fEWRONG"
+            end
+            -- Move to the next question
+            currentQuestionIndex = (currentQuestionIndex % #triviaQuestions) + 1
+        else
+            triviaFeedback = "^fEInvalid input! Please type 'True' or 'False'."
+        end
+    else
+        print("Unexpected cookie or input format!")
+    end
+end
