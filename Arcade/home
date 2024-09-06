@@ -1,0 +1,10 @@
+^f2**Welcome to the Arcade!**^f0
+
+^f3[Play Game 1: Snake] ~$custom:playGame1
+^f3[Play Game 2: Tetris] ~$custom:playGame2
+^f3[Play Game 3: Pong] ~$custom:playGame3
+
+^f2---------------------------------
+^f8Click on a game to play! Each game will open in a new shell.
+-------------------------------------
+^f3[Back to Home Page] ~loc:home
