@@ -1,18 +1,24 @@
+ -- Command to join the chat room with a unique username
+    local joinCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua"
+
+    -- Send the 'exec' command to the client's computer
+    rednet.send(client, "exec:" .. joinCommand)
+    rednet.send(client, "ref") -- Optionally refresh to show the updated state
+end
+
+-- Function to generate dynamic content
+function getDynamicLine(name, page)
+    if name == "downloadAndRunEnchat" then
+        return "" -- Leave blank since we only trigger commands, no output needed
+    end
+    return "" -- Handle any other dynamic lines with an empty string
+end
+
+-- Register the custom command in Dynet
 function runDynamicCommand(name, client, page)
     if name == "downloadAndRunEnchat" then
-        -- Command to download and run the chatroom script
-        local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua && shell.run('enchat3.lua')"
-        
-        -- Send the exec command to the client
-        rednet.send(client, "exec:" .. downloadCommand)
-        -- Refresh the client page to confirm action
-        rednet.send(client, "ref")
+        handledownloadAndRunEnchat(client)
     else
         print("Unexpected command: " .. tostring(name))
     end
-end
-
-function getDynamicLine(name, page)
-    -- Only need to handle custom commands, return empty for dynamic lines
-    return ""
 end
