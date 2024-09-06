@@ -21,8 +21,8 @@ local function runProgram(filename)
     print("Running " .. filename .. " in a new shell tab")
     if fs.exists(filename) then
         print("File exists: " .. filename)
-        -- Correct command to open a new tab and run the program
-        shell.openTab("shell", "run", filename)
+        -- Correct command as a single string for shell.openTab
+        shell.openTab("run " .. filename)
     else
         print("File not found: " .. filename)
     end
