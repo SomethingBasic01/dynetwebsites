@@ -1,0 +1,22 @@
+-- Function to handle running the games
+function handleRunGame(client, pastebinCode)
+    -- Command to download and run the game from Pastebin
+    local runCommand = "pastebin run " .. pastebinCode
+
+    -- Send the 'exec' command to the client's computer
+    rednet.send(client, "exec:" .. runCommand)
+    rednet.send(client, "ref") -- Optionally refresh to show the updated state
+end
+
+-- Function to handle dynamic commands
+function runDynamicCommand(name, client, page)
+    if name == "custom:playGame1" then
+        handleRunGame(client, "PASTEBIN_CODE_1") -- Replace PASTEBIN_CODE_1 with the actual Pastebin code
+    elseif name == "custom:playGame2" then
+        handleRunGame(client, "PASTEBIN_CODE_2") -- Replace PASTEBIN_CODE_2 with the actual Pastebin code
+    elseif name == "custom:playGame3" then
+        handleRunGame(client, "PASTEBIN_CODE_3") -- Replace PASTEBIN_CODE_3 with the actual Pastebin code
+    else
+        print("Unexpected command: " .. tostring(name))
+    end
+end
