@@ -5,7 +5,7 @@
 ^fE^b7[Play Game 2: ^f1Battleship^fE] ~$custom:playGame2
 ^fE^b7[Play Game 3: ^fDfWatermelonGame^FE] ~$custom:playGame3
 ^fE^b7[Play Game 4: ^f4DOOM^fE] ~$custom:playGame4
-^f3[Play Game 5: Space Invaders] ~$custom:playGame5
+^f3^b7[Play Game 5: ^f2f^f3i^4r^f3e^f2w^f6o^f4r^f3k^f4s] ~$custom:playGame5
 
 ^f2---------------------------------
 ^f8Click on a game to play! Each game will open in a new shell.
