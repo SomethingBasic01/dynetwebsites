@@ -1,21 +1,23 @@
--- Expanded trivia game data without line breaks
+-- Trivia game data split into multiple parts
 local triviaQuestions = {
-    { question = "The Minecraft world is infinite. True or False?", answer = "False" },
-    { question = "Creepers were originally a coding bug. True or False?", answer = "True" },
-    { question = "Diamonds can be mined with a wooden pickaxe. True or False?", answer = "False" },
-    { question = "Gold tools mine faster than diamond tools. True or False?", answer = "True" },
-    { question = "Endermen can teleport through walls. True or False?", answer = "True" },
-    { question = "A sword can block damage in the current version of Minecraft. True or False?", answer = "False" },
-    { question = "You can sleep in the Nether to set your spawn point. True or False?", answer = "False" },
-    { question = "Obsidian can only be mined with a diamond pickaxe. True or False?", answer = "True" }
+    { question1 = "The Minecraft world is infinite.", question2 = "True or False?", answer = "False" },
+    { question1 = "Creepers were originally a", question2 = "coding bug. True or False?", answer = "True" },
+    { question1 = "Diamonds can be mined with", question2 = "a wooden pickaxe. True or False?", answer = "False" },
+    { question1 = "Gold tools mine faster than", question2 = "diamond tools. True or False?", answer = "True" },
+    { question1 = "Endermen can teleport through", question2 = "walls. True or False?", answer = "True" },
+    { question1 = "A sword can block damage in the", question2 = "current version of Minecraft. True or False?", answer = "False" },
+    { question1 = "You can sleep in the Nether to", question2 = "set your spawn point. True or False?", answer = "False" },
+    { question1 = "Obsidian can only be mined", question2 = "with a diamond pickaxe. True or False?", answer = "True" }
 }
 
 local currentQuestionIndex = 1
 local triviaFeedback = "" -- Feedback message for the user
 
 function getDynamicLine(name, page)
-    if name == "triviaQuestion" then
-        return triviaQuestions[currentQuestionIndex].question
+    if name == "triviaQuestion1" then
+        return triviaQuestions[currentQuestionIndex].question1
+    elseif name == "triviaQuestion2" then
+        return triviaQuestions[currentQuestionIndex].question2
     elseif name == "triviaFeedback" then
         return triviaFeedback
     end
