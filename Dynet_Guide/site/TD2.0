@@ -1,4 +1,4 @@
--- Trivia game data split into multiple parts
+-- Expanded trivia game data with more questions
 local triviaQuestions = {
     { question1 = "The Minecraft world is infinite.", question2 = "True or False?", answer = "False" },
     { question1 = "Creepers were originally a", question2 = "coding bug. True or False?", answer = "True" },
@@ -7,7 +7,27 @@ local triviaQuestions = {
     { question1 = "Endermen can teleport through", question2 = "walls. True or False?", answer = "True" },
     { question1 = "A sword can block damage in the", question2 = "current version of Minecraft. True or False?", answer = "False" },
     { question1 = "You can sleep in the Nether to", question2 = "set your spawn point. True or False?", answer = "False" },
-    { question1 = "Obsidian can only be mined", question2 = "with a diamond pickaxe. True or False?", answer = "True" }
+    { question1 = "Obsidian can only be mined", question2 = "with a diamond pickaxe. True or False?", answer = "True" },
+    { question1 = "Pandas in Minecraft can be", question2 = "aggressive. True or False?", answer = "True" },
+    { question1 = "The Ender Dragon drops", question2 = "an egg when defeated. True or False?", answer = "True" },
+    { question1 = "You can craft chainmail armor.", question2 = "True or False?", answer = "False" },
+    { question1 = "You need blaze powder to", question2 = "brew potions. True or False?", answer = "True" },
+    { question1 = "Villagers can open iron doors.", question2 = "True or False?", answer = "False" },
+    { question1 = "Skeletons can shoot", question2 = "fire arrows. True or False?", answer = "True" },
+    { question1 = "The warden is found in", question2 = "the Nether. True or False?", answer = "False" },
+    { question1 = "Phantoms attack players", question2 = "who haven't slept. True or False?", answer = "True" },
+    { question1 = "A saddle can be crafted", question2 = "in survival mode. True or False?", answer = "False" },
+    { question1 = "The 'Totem of Undying'", question2 = "saves you from death. True or False?", answer = "True" },
+    { question1 = "The 'Wither' can be summoned", question2 = "using soul sand and skulls. True or False?", answer = "True" },
+    { question1 = "Villagers can become", question2 = "werewolves. True or False?", answer = "False" },
+    { question1 = "A 'Notch Apple' gives more", question2 = "buffs than a regular apple. True or False?", answer = "True" },
+    { question1 = "Cats can scare away phantoms.", question2 = "True or False?", answer = "True" },
+    { question1 = "Turtles drop their shell when", question2 = "they die. True or False?", answer = "False" },
+    { question1 = "A trident enchanted with", question2 = "'Channeling' can summon lightning. True or False?", answer = "True" },
+    { question1 = "Netherite gear does not burn", question2 = "in lava. True or False?", answer = "True" },
+    { question1 = "Endermites spawn", question2 = "when Endermen teleport. True or False?", answer = "False" },
+    { question1 = "Fishing rods can be used to", question2 = "pull players and mobs. True or False?", answer = "True" },
+    { question1 = "Pufferfish can poison players.", question2 = "True or False?", answer = "True" }
 }
 
 local currentQuestionIndex = 1
