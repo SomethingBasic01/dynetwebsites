@@ -2,8 +2,8 @@
 Current Question:
 $triviaQuestion
 
-^f8[Answer 'True'] ~$handleAnswer("true")
-^f8[Answer 'False'] ~$handleAnswer("false")
+^f8[Answer 'True'] ~$answerTrue
+^f8[Answer 'False'] ~$answerFalse
 
 Feedback:
 $triviaFeedback
