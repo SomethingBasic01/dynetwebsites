@@ -1,22 +1,26 @@
--- Register the custom command in Dynet
-function runDynamicCommand(name, client, page)
-    if name == "downloadAndRunEnchat" then
-        -- Command to download and run the chatroom script
-        local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua && shell.run('enchat3.lua')"
-        
-        -- Send the exec command to the client to execute the download and run it
-        rednet.send(client, "exec:" .. downloadCommand)
-        -- Refresh the client page to confirm action
-        rednet.send(client, "ref")
-    else
-        print("Unexpected command: " .. tostring(name))
-    end
+-- Function to handle downloading and running the chatroom script
+function handleDownloadAndRunEnchat(client)
+    -- Command to download and run the chatroom script
+    local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua && shell.run('enchat3.lua')"
+
+    -- Send the 'exec' command to the client's computer
+    rednet.send(client, "exec:" .. downloadCommand)
+    rednet.send(client, "ref") -- Optionally refresh to show the updated state
 end
 
--- Function to generate dynamic content for the webpage
+-- Function to generate dynamic content
 function getDynamicLine(name, page)
     if name == "downloadAndRunEnchat" then
         return "" -- Leave blank since we only trigger commands, no output needed
     end
-    return "" -- Default case for other dynamic lines
+    return "" -- Handle any other dynamic lines with an empty string
+end
+
+-- Register the custom command in Dynet
+function runDynamicCommand(name, client, page)
+    if name == "downloadAndRunEnchat" then
+        handleDownloadAndRunEnchat(client)
+    else
+        print("Unexpected command: " .. tostring(name))
+    end
 end
