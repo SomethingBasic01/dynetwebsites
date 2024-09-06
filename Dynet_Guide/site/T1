@@ -1,0 +1,14 @@
+^f9Welcome to the Trivia Game!^f0
+Current Question:
+$triviaQuestion
+
+^f8[Answer 'True'] ~$answerTrue
+^f8[Answer 'False'] ~$answerFalse
+
+Feedback:
+$triviaFeedback
+
+Score:
+$playerScore
+
+^f3[Back to Home Page] ~loc:home
