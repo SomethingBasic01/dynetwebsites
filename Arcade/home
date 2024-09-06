@@ -2,8 +2,8 @@
 ^f8 run downloaded games in shell!
 
 ^fE^b7[Download Game 1: ^fDMinecraft^fE] ~$custom:playGame1
-^f3^b7[Play Game 2: ^f1Battleship^f3] ~$custom:playGame2
-^f3[Play Game 3: Pong] ~$custom:playGame3
+^fE^b7[Play Game 2: ^f1Battleship^fE] ~$custom:playGame2
+^fE^b7[Play Game 3: ^fDfWatermelonGame^FE] ~$custom:playGame3
 ^f3[Play Game 4: Pac-Man] ~$custom:playGame4
 ^f3[Play Game 5: Space Invaders] ~$custom:playGame5
 
