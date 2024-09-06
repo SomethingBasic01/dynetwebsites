@@ -1,6 +1,6 @@
 ^f2**Welcome to the Arcade - Page 1!**^f0
 
-^f3[Play Game 1: Snake] ~$custom:playGame1
+^fE^b7[Play Game 1: ^fDMinecraft^fE] ~$custom:playGame1
 ^f3[Play Game 2: Tetris] ~$custom:playGame2
 ^f3[Play Game 3: Pong] ~$custom:playGame3
 ^f3[Play Game 4: Pac-Man] ~$custom:playGame4
