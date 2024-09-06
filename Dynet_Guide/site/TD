@@ -1,0 +1,38 @@
+-- Trivia game data
+local triviaQuestions = {
+    { question = "The Minecraft world is infinite. True or False?", answer = "False" },
+    { question = "Creepers were originally a coding bug. True or False?", answer = "True" },
+    { question = "Diamonds can be mined with a wooden pickaxe. True or False?", answer = "False" },
+}
+local currentQuestionIndex = 1
+local triviaFeedback = "" -- Feedback message for the user
+
+function getDynamicLine(name, page)
+    if name == "triviaQuestion" then
+        return triviaQuestions[currentQuestionIndex].question
+    elseif name == "triviaFeedback" then
+        return triviaFeedback
+    end
+    return ""  -- Ensure no unintended output
+end
+
+-- Function to handle the user's answer directly
+function handleAnswer(input)
+    print("Received answer: '" .. input .. "'")
+
+    if input == "true" or input == "false" then
+        local correctAnswer = triviaQuestions[currentQuestionIndex].answer:lower()
+        if input == correctAnswer then
+            triviaFeedback = "^f5RIGHT"
+        else
+            triviaFeedback = "^fEWRONG"
+        end
+        -- Move to the next question
+        currentQuestionIndex = (currentQuestionIndex % #triviaQuestions) + 1
+    else
+        triviaFeedback = "^fEInvalid input! Please click 'True' or 'False'."
+    end
+
+    -- Refresh the page to show the updated feedback
+    refresh()
+end
