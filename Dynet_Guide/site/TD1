@@ -1,0 +1,57 @@
+-- Simple trivia game data
+local triviaQuestions = {
+    { question = "The Minecraft world is infinite.\nTrue or False?", answer = "False" },
+    { question = "Creepers were originally a coding bug.\nTrue or False?", answer = "True" },
+    { question = "Diamonds can be mined with a wooden pickaxe.\nTrue or False?", answer = "False" },
+}
+
+local currentQuestionIndex = 1 -- Start with the first question
+local triviaFeedback = "" -- Feedback message for the user
+
+-- Function to display the current question
+function getDynamicLine(name, page)
+    if name == "triviaQuestion" then
+        return triviaQuestions[currentQuestionIndex].question
+    elseif name == "triviaFeedback" then
+        return triviaFeedback
+    end
+    return "" -- Ensure no unintended output
+end
+
+-- Function to handle dynamic commands
+function runDynamicCommand(name, client, page)
+    print("Command received: " .. name) -- Debugging: print command received
+    local input = ""
+
+    -- Handle specific commands
+    if name == "answerTrue" then
+        input = "true"
+    elseif name == "answerFalse" then
+        input = "false"
+    elseif name == "home" then
+        refresh(client) -- Refresh to "home" page
+        return
+    else
+        print("Unexpected command: " .. name)
+        return
+    end
+
+    print("Received input: '" .. input .. "' from client " .. tostring(client))
+
+    -- Check if input is correct
+    local correctAnswer = triviaQuestions[currentQuestionIndex].answer:lower()
+    if input == correctAnswer then
+        triviaFeedback = "^f5RIGHT! Your answer is correct."
+    else
+        triviaFeedback = "^fEWRONG! The correct answer was '" .. correctAnswer .. "'."
+    end
+
+    -- Move to the next question
+    currentQuestionIndex = currentQuestionIndex + 1
+    if currentQuestionIndex > #triviaQuestions then
+        currentQuestionIndex = 1 -- Reset to the first question
+    end
+
+    -- Refresh the page to show the updated feedback
+    refresh(client)
+end
