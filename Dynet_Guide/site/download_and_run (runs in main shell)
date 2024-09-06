@@ -18,7 +18,7 @@ local function runProgramInNewShell(filename)
     if fs.exists(filename) then
         print("File exists: " .. filename)
         -- Open a new tab and run the program
-        local tabID = shell.openTab("run " .. filename)
+        local tabID = shell.openTab("filename")
         print("Opened new shell tab with ID: " .. tostring(tabID))
     else
         print("File not found: " .. filename)
