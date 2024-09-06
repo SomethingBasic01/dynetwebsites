@@ -46,7 +46,7 @@ function getDynamicLine(name, page)
         end
         return displayText
     elseif name == "addMessagePrompt" then
-        return "^f3[Add Message] ~ask:message:Enter your message:"
+        return "^f3[Add Message] ~$custom:addMessage"
     end
     return "" -- Ensure no unintended output
 end
@@ -54,7 +54,9 @@ end
 function runDynamicCommand(name, client, page)
     print("Command received: " .. tostring(name))  -- Debugging: print command received
 
-    if name == "message" then
+    if name == "addMessage" then
+        rednet.send(client, "ask:message:Enter your message:") -- Use rednet to prompt for input
+    elseif name == "message" then
         local inputMessage = page -- Capture input message
         if inputMessage and #inputMessage > 0 then
             addMessage(inputMessage)
