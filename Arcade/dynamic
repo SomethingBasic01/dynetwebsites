@@ -17,7 +17,7 @@ function runDynamicCommand(name, client, page)
     elseif name == "custom:playGame3" then
         handleRunGame(client, "Fz27CDrf") -- Replace PASTEBIN_CODE_3 with the actual Pastebin code for Game 3
     elseif name == "custom:playGame4" then
-        handleRunGame(client, "PASTEBIN_CODE_4") -- Replace PASTEBIN_CODE_4 with the actual Pastebin code for Game 4
+        handleRunGame(client, "zuXGS6xz") -- Replace PASTEBIN_CODE_4 with the actual Pastebin code for Game 4
     elseif name == "custom:playGame5" then
         handleRunGame(client, "PASTEBIN_CODE_5") -- Replace PASTEBIN_CODE_5 with the actual Pastebin code for Game 5
     elseif name == "custom:playGame6" then
