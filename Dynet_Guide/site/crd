@@ -1,0 +1,69 @@
+-- Initialize message storage
+local messages = {} -- To store messages in memory
+local maxMessages = 10 -- Maximum number of messages to display
+local messageFileName = "messages.txt" -- File to store messages
+
+-- Function to read messages from file
+local function readMessages()
+    local file = fs.open(messageFileName, "r")
+    if file then
+        local content = file.readAll()
+        if content then
+            messages = textutils.unserialize(content) or {} -- Load messages or initialize as empty table
+        end
+        file.close()
+    end
+end
+
+-- Function to save messages to file
+local function saveMessages()
+    local file = fs.open(messageFileName, "w")
+    if file then
+        file.write(textutils.serialize(messages))
+        file.close()
+    end
+end
+
+-- Function to add a message
+local function addMessage(newMessage)
+    if newMessage and #newMessage > 0 then
+        table.insert(messages, 1, newMessage) -- Add new message at the beginning
+        if #messages > maxMessages then
+            table.remove(messages) -- Keep the number of messages within the limit
+        end
+        saveMessages()
+    end
+end
+
+-- Read messages when the server starts
+readMessages()
+
+function getDynamicLine(name, page)
+    if name == "messageBoard" then
+        local displayText = "^f9Message Board:\n"
+        for i, msg in ipairs(messages) do
+            displayText = displayText .. "^f8- " .. msg .. "\n"
+        end
+        return displayText
+    elseif name == "addMessagePrompt" then
+        return "^f3[Add Message] ~$custom:addMessage"
+    end
+    return "" -- Ensure no unintended output
+end
+
+function runDynamicCommand(name, client, page)
+    print("Command received: " .. tostring(name))  -- Debugging: print command received
+
+    if name == "addMessage" then
+        rednet.send(client, "ask:message:Enter your message:") -- Prompt user for input
+    elseif name == "message" then
+        local inputMessage = page -- Capture input message
+        if inputMessage and #inputMessage > 0 then
+            addMessage(inputMessage)
+            rednet.send(client, "ref") -- Refresh page to show new message
+        end
+    else
+        print("Unexpected command: " .. tostring(name))
+        return
+    end
+end
