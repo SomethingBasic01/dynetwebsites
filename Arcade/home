@@ -1,11 +1,11 @@
 ^fE^bF**Welcome to the Arcade**
 ^f8 run downloaded games in shell!
 
-^fE^b7[Download Game 1: ^fDMinecraft^fE] ~$custom:playGame1
-^fE^b7[Play Game 2: ^f1Battleship^fE] ~$custom:playGame2
-^fE^b7[Play Game 3: ^fDfWatermelonGame^FE] ~$custom:playGame3
-^fE^b7[Play Game 4: ^f4DOOM^fE] ~$custom:playGame4
-^f3^b7[Play Game 5: ^f2f^f3i^4r^f3e^f2w^f6o^f4r^f3k^f4s] ~$custom:playGame5
+^fE^b7[Download Game 1: ^fDMinecraft ^fE] ~$custom:playGame1
+^fE^b7[Play Game 2: ^f1Battleship ^fE] ~$custom:playGame2
+^fE^b7[Play Game 3: ^fDWatermelonGame ^FE] ~$custom:playGame3
+^fE^b7[Play Game 4: ^f4DOOM ^fE] ~$custom:playGame4
+^fE^b7[Play Game 5: ^f2Fireworks ^fE] ~$custom:playGame5
 
 ^f2---------------------------------
 ^f8Click on a game to play! Each game will open in a new shell.
