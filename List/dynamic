@@ -1,0 +1,67 @@
+-- List to store sponsored websites
+local sponsoredWebsites = {}
+
+-- Function to load the list of sponsored websites from a file
+local function loadSponsoredWebsites()
+    local file = fs.open("sponsoredWebsites.txt", "r")
+    if file then
+        local content = file.readAll()
+        file.close()
+        for line in string.gmatch(content, "[^\r\n]+") do
+            local name, link, description = string.match(line, "([^|]+)|([^|]+)|([^|]+)")
+            if name and link and description then
+                table.insert(sponsoredWebsites, {name = name, link = link, description = description})
+            end
+        end
+    end
+end
+
+-- Function to save the list of sponsored websites to a file
+local function saveSponsoredWebsites()
+    local file = fs.open("sponsoredWebsites.txt", "w")
+    if file then
+        for _, website in ipairs(sponsoredWebsites) do
+            file.write(website.name .. "|" .. website.link .. "|" .. website.description .. "\n")
+        end
+        file.close()
+    end
+end
+
+-- Function to add a new sponsored website
+local function addSponsoredWebsite(name, link, description)
+    table.insert(sponsoredWebsites, {name = name, link = link, description = description})
+    saveSponsoredWebsites()  -- Save the updated list
+end
+
+-- Function to generate dynamic content
+function getDynamicLine(name, page)
+    if name == "sponsoredWebsitesList" then
+        local listContent = ""
+        for _, website in ipairs(sponsoredWebsites) do
+            listContent = listContent .. "^f3" .. website.name .. " ~glob:" .. website.link .. "\n" .. website.description .. "\n\n"
+        end
+        return listContent
+    end
+    return ""
+end
+
+-- Function to handle dynamic commands
+function runDynamicCommand(name, client, page)
+    if name == "submitWebsite" then
+        local input = page -- Assume page contains the user input from the `ask` command
+        local name, link, description = string.match(input, "([^|]+)|([^|]+)|([^|]+)")
+        if name and link and description then
+            addSponsoredWebsite(name, link, description)
+            rednet.send(client, "ref") -- Refresh the client's page to show the updated list
+            print("Added new sponsored website: " .. name)
+        else
+            print("Invalid submission format from client " .. client)
+            rednet.send(client, "ref") -- Refresh the client's page in case of invalid input
+        end
+    else
+        print("Unexpected command: " .. tostring(name))
+    end
+end
+
+-- Load the current list of sponsored websites when the server starts
+loadSponsoredWebsites()
