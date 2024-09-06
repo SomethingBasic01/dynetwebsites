@@ -1,0 +1,14 @@
+^f2**Welcome to the Arcade - Page 2!**^f0
+
+^f3[Play Game 6: Asteroids] ~$custom:playGame6
+^f3[Play Game 7: Breakout] ~$custom:playGame7
+^f3[Play Game 8: Minesweeper] ~$custom:playGame8
+^f3[Play Game 9: Chess] ~$custom:playGame9
+^f3[Play Game 10: Flappy Bird] ~$custom:playGame10
+
+^f2---------------------------------
+^f8Click on a game to play! Each game will open in a new shell.
+-------------------------------------
+
+^f3[Previous Page] ~loc:home
+^f3[Back to Home Page] ~loc:home
