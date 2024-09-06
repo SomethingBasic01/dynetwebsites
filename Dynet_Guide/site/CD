@@ -1,3 +1,4 @@
+-- Register the custom command in Dynet
 function runDynamicCommand(name, client, page)
     if name == "downloadAndRunEnchat" then
         -- Command to download and run the chatroom script
@@ -12,7 +13,10 @@ function runDynamicCommand(name, client, page)
     end
 end
 
+-- Function to generate dynamic content for the webpage
 function getDynamicLine(name, page)
-    -- Only need to handle custom commands, return empty for dynamic lines
-    return ""
+    if name == "downloadAndRunEnchat" then
+        return "" -- Leave blank since we only trigger commands, no output needed
+    end
+    return "" -- Default case for other dynamic lines
 end
