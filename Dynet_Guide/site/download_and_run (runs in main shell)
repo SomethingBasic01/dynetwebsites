@@ -12,14 +12,12 @@ local function downloadProgram(url, filename)
     return result
 end
 
--- Function to run the program in a new shell tab using shell.openTab
-local function runProgramInNewShell(filename)
-    print("Running " .. filename .. " in a new shell tab")
+-- Function to run the program directly using shell.run
+local function runProgram(filename)
+    print("Running " .. filename .. " directly")
     if fs.exists(filename) then
         print("File exists: " .. filename)
-        -- Open a new tab and run the program
-        local tabID = shell.openTab("filename")
-        print("Opened new shell tab with ID: " .. tostring(tabID))
+        shell.openTab(filename)  -- Directly run the program
     else
         print("File not found: " .. filename)
     end
@@ -32,7 +30,7 @@ local filename = "enchat3.lua"
 if downloadProgram(url, filename) then
     -- Wait a moment to ensure the download completes
     sleep(1)
-    runProgramInNewShell(filename)  -- Run the program in a new shell tab
+    runProgram(filename)  -- Run the program using its filename
 else
     print("Failed to download the program.")
 end
