@@ -9,9 +9,9 @@ function handleJoinChatRoom(client)
     -- Command to join the chat room with a unique username
     local joinCommand = "chat join 123 user:" .. userID
 
-    -- Send a formatted message that the client will interpret and execute
+    -- Send the 'exec' command to the client's computer
     rednet.send(client, "exec:" .. joinCommand)
-    rednet.send(client, "ref") -- Refresh to show the chat room joined
+    rednet.send(client, "ref") -- Optionally refresh to show the updated state
 end
 
 -- Function to generate dynamic content
