@@ -132,8 +132,6 @@ function runDynamicCommand(name, client, page)
     elseif name == "answerFalse" then
         input = "false"
         print("Processed command: Answer False")  -- Debugging
-    else
-        print("Unexpected command: " .. tostring(name))  -- Debugging
         return
     end
 
