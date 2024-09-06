@@ -1,13 +1,21 @@
 -- Expanded trivia game data without line breaks
 local triviaQuestions = {
-    { question = "The Minecraft world is infinite. True or False?", answer = "False" },
-    { question = "Creepers were originally a coding bug. True or False?", answer = "True" },
-    { question = "Diamonds can be mined with a wooden pickaxe. True or False?", answer = "False" },
-    { question = "Gold tools mine faster than diamond tools. True or False?", answer = "True" },
-    { question = "Endermen can teleport through walls. True or False?", answer = "True" },
-    { question = "A sword can block damage in the current version of Minecraft. True or False?", answer = "False" },
-    { question = "You can sleep in the Nether to set your spawn point. True or False?", answer = "False" },
-    { question = "Obsidian can only be mined with a diamond pickaxe. True or False?", answer = "True" }
+    { question = "The Minecraft world is infinite. 
+True or False?", answer = "False" },
+    { question = "Creepers were originally a coding bug.
+True or False?", answer = "True" },
+    { question = "Diamonds can be mined with
+a wooden pickaxe. True or False?", answer = "False" },
+    { question = "Gold tools mine faster than diamond tools.
+True or False?", answer = "True" },
+    { question = "Endermen can teleport through walls.
+True or False?", answer = "True" },
+    { question = "A sword can block damage in the current
+version of Minecraft. True or False?", answer = "False" },
+    { question = "You can sleep in the Nether to set your
+spawn point. True or False?", answer = "False" },
+    { question = "Obsidian can only be mined with a
+diamond pickaxe. True or False?", answer = "True" }
 }
 
 local currentQuestionIndex = 1
