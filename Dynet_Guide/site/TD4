@@ -1,0 +1,12 @@
+-- Debugging: Simply capture the input directly
+function takeDynamicInput(_, input)
+    print("Received input: '" .. tostring(input) .. "'")  -- Show the raw input
+    triviaFeedback = "^fERaw input received: " .. tostring(input)
+end
+
+function getDynamicLine(name, page)
+    if name == "triviaFeedback" then
+        return triviaFeedback
+    end
+    return ""
+end
