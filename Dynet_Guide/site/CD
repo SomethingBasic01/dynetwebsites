@@ -3,20 +3,20 @@ function handleDownloadAndRunEnchat(client)
     -- Command to download the chatroom script
     local downloadCommand = "wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua"
 
-    -- Command to run the chatroom script in a new shell using multishell
-    local runCommand = "multishell.launch({}, 'enchat3.lua')"
+    -- Command to run the chatroom script in a new tab using os.openTab
+    local runCommand = "os.openTab('enchat3.lua')"
 
     -- Send the 'exec' command to the client's computer to download the script
     rednet.send(client, "exec:" .. downloadCommand)
     -- Wait a bit to ensure the download completes
     sleep(1) -- Adjust the sleep duration if needed
-    -- Send the 'exec' command to the client's computer to run it in a new shell
+    -- Send the 'exec' command to the client's computer to run it in a new tab
     rednet.send(client, "exec:" .. runCommand)
     -- Refresh the client page to confirm action
     rednet.send(client, "ref")
 end
 
--- Function to generate dynamic content
+-- Function to generate dynamic content for the webpage
 function getDynamicLine(name, page)
     if name == "downloadAndRunEnchat" then
         return "" -- Leave blank since we only trigger commands, no output needed
