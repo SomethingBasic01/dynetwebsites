@@ -14,6 +14,14 @@ function handleJoinChatRoom(client)
     rednet.send(client, "ref") -- Refresh to show the chat room joined
 end
 
+-- Function to generate dynamic content
+function getDynamicLine(name, page)
+    if name == "joinChatRoom" then
+        return "" -- This can be left blank if not dynamically generating content
+    end
+    return "" -- Return empty string for any other cases to avoid errors
+end
+
 -- Register the custom command in Dynet
 function runDynamicCommand(name, client, page)
     if name == "joinChatRoom" then
