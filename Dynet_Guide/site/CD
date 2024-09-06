@@ -1,0 +1,10 @@
+function runDynamicCommand(name, client, page)
+    if name == "download_and_run_enchat" then
+        -- Send the command to download and execute the chatroom script
+        rednet.send(client, "exec:wget https://github.com/LDDestroier/enchat/raw/master/enchat3.lua enchat3.lua && shell.run('enchat3.lua')")
+        -- Optional: Refresh the client page to confirm the action
+        rednet.send(client, "ref")
+    else
+        print("Unknown dynamic command: " .. name)
+    end
+end
