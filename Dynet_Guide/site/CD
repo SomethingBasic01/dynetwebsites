@@ -18,7 +18,8 @@ end
 
 -- Register the custom command in Dynet
 function runDynamicCommand(name, client, page)
-    if name == "downloadAndRunEnchat" then
+    -- Check for the full command including the 'custom:' prefix
+    if name == "custom:downloadAndRunEnchat" then
         handleDownloadAndRunEnchat(client)
     else
         print("Unexpected command: " .. tostring(name))
