@@ -1,0 +1,10 @@
+^f9Welcome to the Trivia Game!^f0
+Current Question:
+$triviaQuestion
+
+^f8[Submit Answer] ~ask:cookie:Type 'True' or 'False'
+
+Feedback:
+$triviaFeedback
+
+^f3[Back to Home Page] ~loc:home
