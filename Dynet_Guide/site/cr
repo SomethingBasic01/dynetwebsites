@@ -1,0 +1,8 @@
+^f9WELCOME TO THE MESSAGE BOARD!^f0
+
+$addMessagePrompt
+
+^f2---------------------------------
+$messageBoard
+-------------------------------------
+^f3[Back to Home Page] ~loc:home
