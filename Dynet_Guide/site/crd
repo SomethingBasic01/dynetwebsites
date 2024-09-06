@@ -9,17 +9,17 @@ function handleJoinChatRoom(client)
     -- Command to join the chat room with a unique username
     local joinCommand = "chat join 123 user:" .. userID
 
-    -- Open a new tab for the user to join the chat
-    shell.openTab(joinCommand)
+    -- Send a formatted message that the client will interpret and execute
+    rednet.send(client, "exec:" .. joinCommand)
     rednet.send(client, "ref") -- Refresh to show the chat room joined
 end
 
 -- Function to generate dynamic content
 function getDynamicLine(name, page)
     if name == "joinChatRoom" then
-        return "" -- This can be left blank if not dynamically generating content
+        return "" -- Leave blank since we only trigger commands, no output needed
     end
-    return "" -- Return empty string for any other cases to avoid errors
+    return "" -- Handle any other dynamic lines with an empty string
 end
 
 -- Register the custom command in Dynet
